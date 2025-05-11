@@ -68,8 +68,6 @@ python eval.py
 
 I have used realsense camera and usually the accuracy is not excellent but still considerably good because of the quality of the dataset.
 
-The model performs this way in robotic workspace using realsense.
-![](./images/performance_realsense_in_workspace.png)
 
 ```
 📂 Directory Structure
