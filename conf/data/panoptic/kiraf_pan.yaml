@@ -2,7 +2,7 @@
 defaults:
   - panoptic/default
 
-class: kiraf.KIraFPanDataset
+class: modproft.modproftPanDataset
 dataroot: /home/andi/DeepViewAgg/torch_points3d/datasets/panoptic/data
 #dataroot: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data
 grid_size: 0.03
@@ -22,7 +22,7 @@ n: 3
 n_pcls: 2
 
 filepath: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/
-filepath_torch: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/kiraf/
+filepath_torch: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/modproft/
 filepath_sampled_pcl: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/sampled
 
 include_real_data_to_training: True

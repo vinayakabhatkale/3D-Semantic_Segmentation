@@ -19,7 +19,7 @@ Parameter Group 0
 [2024-06-27 14:14:32,312][torch_points3d.utils.colors][INFO] - [0;32mBatchNorm Scheduler: BNMomentumScheduler(base_momentum: 0.98, update_scheduler_on=on_epoch)[0m
 [2024-06-27 14:14:32,312][torch_points3d.utils.colors][INFO] - [0;32mAccumulated gradients: None[0m
 [2024-06-27 14:14:32,312][torch_points3d.trainer][INFO] - Model size = 14081216
-[2024-06-27 14:14:32,313][torch_points3d.trainer][INFO] - Dataset: KIraFDataset 
+[2024-06-27 14:14:32,313][torch_points3d.trainer][INFO] - Dataset: modproftDataset 
 [0;95mtrain_pre_batch_collate_transform [0m= None
 [0;95mval_pre_batch_collate_transform [0m= None
 [0;95mtest_pre_batch_collate_transform [0m= None

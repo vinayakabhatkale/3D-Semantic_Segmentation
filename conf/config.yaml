@@ -8,7 +8,7 @@ defaults: # for loading the default.yaml config
   - debugging: default
   - sota # Contains current SOTA results on different datasets (extracted from papers !).
   - override models: segmentation/kpconv
-  - override data: segmentation/kiraf
+  - override data: segmentation/modproft
 #  - hydra/job_logging: custom
 #  - hydra/output: custom  # add the support for user-defined experiment folder (where to save the experiment files)
 

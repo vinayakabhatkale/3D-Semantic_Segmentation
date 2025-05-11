@@ -30,7 +30,7 @@ checkpoint_dir: ""
 # parameters for Weights and Biases
 wandb:
   entity: ""
-  project: kiraf 
+  project: modproft 
   log: False
   notes:
   name: PointCNN

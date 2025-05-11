@@ -11,7 +11,7 @@ from torch_geometric.data import Data, InMemoryDataset, extract_zip
 from torch_geometric.io import read_txt_array
 import torch_geometric.transforms as T
 from torch_points3d.core.data_transform.grid_transform import SaveOriginalPosId
-from torch_points3d.metrics.kiraf_tracker import KIraFTracker
+from torch_points3d.metrics.modproft_tracker import modproftTracker
 from torch_points3d.datasets.base_dataset import BaseDataset, save_used_properties
 from torch_points3d.datasets.segmentation.utils.viz_pcl import Visualizations
 
@@ -19,7 +19,7 @@ from pickle import dump, load
 
 
 
-class KIraF(InMemoryDataset):
+class modproft(InMemoryDataset):
     url = None
     """
     category_ids = {
@@ -76,7 +76,7 @@ class KIraF(InMemoryDataset):
         self.categories = categories
         self.is_training = training
 
-        super(KIraF, self).__init__(
+        super(modproft, self).__init__(
             root, transform, pre_transform, pre_filter)
 
         self.split = split
@@ -218,8 +218,8 @@ class KIraF(InMemoryDataset):
         return "{}({}, categories={})".format(self.__class__.__name__, len(self), self.categories)
 
 
-class KIraFDataset(BaseDataset):
-    """ Wrapper around KIraF that creates train and test datasets.
+class modproftDataset(BaseDataset):
+    """ Wrapper around modproft that creates train and test datasets.
 
     Parameters
     ----------
@@ -253,7 +253,7 @@ class KIraFDataset(BaseDataset):
             fold = None
 
         # generate training data and data loader
-        self.train_dataset = KIraF(
+        self.train_dataset = modproft(
             self._data_path,
             camera=camera,
             #self._category,
@@ -264,7 +264,7 @@ class KIraFDataset(BaseDataset):
             fold=fold
         )
 
-        self.val_dataset = KIraF(
+        self.val_dataset = modproft(
             self._data_path,
             include_normals=dataset_opt.normal,
             split="val",
@@ -274,7 +274,7 @@ class KIraFDataset(BaseDataset):
             fold=fold
         )
 
-        self.test_dataset = KIraF(
+        self.test_dataset = modproft(
             self._data_path,
             camera=camera,
             include_normals=dataset_opt.normal,
@@ -289,7 +289,7 @@ class KIraFDataset(BaseDataset):
     def class_to_segments(self):
         classes_to_segment = {}
         for key in self._categories:
-            classes_to_segment[key] = KIraF.seg_classes[key]
+            classes_to_segment[key] = modproft.seg_classes[key]
         return classes_to_segment
 
     @property
@@ -305,4 +305,4 @@ class KIraFDataset(BaseDataset):
         Returns:
             [BaseTracker] -- tracker
         """
-        return KIraFTracker(self, wandb_log=wandb_log, use_tensorboard=tensorboard_log, dataset_opt=self.dataset_opt)
+        return modproftTracker(self, wandb_log=wandb_log, use_tensorboard=tensorboard_log, dataset_opt=self.dataset_opt)

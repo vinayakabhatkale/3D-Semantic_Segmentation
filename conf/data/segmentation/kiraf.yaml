@@ -4,7 +4,7 @@ defaults:
 
 define: &used_camera 'zivid'
 
-class: kiraf.KIraFDataset
+class: modproft.modproftDataset
 dataroot: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
 grid_size: 0.03
 normal: False # Use normal vectors as features
@@ -30,7 +30,7 @@ camera: ""
 # for testing with other cameras
 #filepath: /home/andi/DeepViewAgg/real_pcls/np/
 
-filepath_torch: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/kiraf/
+filepath_torch: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/
 filepath_sampled_pcl: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/sampled
 
 include_real_data_to_training: True

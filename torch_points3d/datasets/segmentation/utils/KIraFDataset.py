@@ -2,7 +2,7 @@ from torch.utils.data import Dataset
 import numpy as np
 import torch
 
-class KIraFDataset(Dataset):
+class modproftDataset(Dataset):
     def __init__(self, x: np.ndarray, y: np.ndarray):
         self.x = x
         self.labels = y

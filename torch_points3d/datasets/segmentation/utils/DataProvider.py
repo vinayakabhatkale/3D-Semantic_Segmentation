@@ -16,11 +16,11 @@ import copy
 
 # depends on which 
 try:
-    from torch_points3d.datasets.segmentation.utils.KIraFDataset import KIraFDataset
+    from torch_points3d.datasets.segmentation.utils.modproftDataset import modproftDataset
     from torch_points3d.datasets.segmentation.utils.Sampler import Sampler
 except:
     from Sampler import Sampler
-    from KIraFDataset import KIraFDataset
+    from modproftDataset import modproftDataset
     from viz_pcl import Visualizations
     import matplotlib.pyplot as plt
 
@@ -94,7 +94,7 @@ class DataProvider:
         data = torch.cat(list_pcls, dim=0)
         return data
    
-    def _get_ds_for_model(self, config: dict) -> KIraFDataset:
+    def _get_ds_for_model(self, config: dict) -> modproftDataset:
         """
             get dataset with specified channels
             params:
@@ -110,7 +110,7 @@ class DataProvider:
         #if os.path.exists(fp_sampled_pcl) is True:
         #    with open(fp_sampled_pcl, "rb") as f:
         #        self.x, self.y = pickle.load(f)
-        #    return KIraFDataset(self.x, self.y)
+        #    return modproftDataset(self.x, self.y)
 
         self._get_ds_info(self._data, dataset='synth') 
         if config['include_real_data_to_training'] is True:
@@ -138,7 +138,7 @@ class DataProvider:
         del self._data
         del self._real_data
 
-        return KIraFDataset(self.x, self.y), KIraFDataset(self.x_real, self.y_real)
+        return modproftDataset(self.x, self.y), modproftDataset(self.x_real, self.y_real)
 
     def _get_ds_info(self, pcls: np.ndarray, dataset: str='synth') -> None:
         """
@@ -224,7 +224,7 @@ class DataProvider:
                 part of the train_ds will be returned as valid_ds
 
             return: 
-                KIraFDataset, (None, KIraFDataset), KIraFDataset
+                modproftDataset, (None, modproftDataset), modproftDataset
         """
         if config is None:
             config = self.config
@@ -248,7 +248,7 @@ class DataProvider:
             # create a dataset consisting of all training data if cross validation should
             # be used
             train_val_x, train_val_y = self.ds[train_idx]
-            train_val_ds = KIraFDataset(train_val_x, train_val_y)
+            train_val_ds = modproftDataset(train_val_x, train_val_y)
 
             if valid_split is not None:
                 train_idx, valid_idx = train_test_split(
@@ -285,7 +285,7 @@ def create_ds_from_subset(ds: Subset):
 
     return data_list
 
-def create_cross_validation_datasets(train_val_dataset: KIraFDataset, dataset_opt: dict):
+def create_cross_validation_datasets(train_val_dataset: modproftDataset, dataset_opt: dict):
     k=2 #The K can be taken from config file, this can be changed. 
     splits=KFold(n_splits=k,shuffle=True,random_state=42)
     
@@ -309,8 +309,8 @@ def create_cross_validation_datasets(train_val_dataset: KIraFDataset, dataset_op
 
 
 if __name__ == '__main__':
-    #dataset_opt= yaml.safe_load(Path('/home/developer/deepviewaggregation/config/data/segmentation/kiraf.yaml').read_text())
-    dataset_opt= yaml.safe_load(Path('/home/developer/deepviewaggregation/conf/data/segmentation/kiraf.yaml').read_text())
+    #dataset_opt= yaml.safe_load(Path('/home/developer/deepviewaggregation/config/data/segmentation/modproft.yaml').read_text())
+    dataset_opt= yaml.safe_load(Path('/home/developer/deepviewaggregation/conf/data/segmentation/modproft.yaml').read_text())
     dp = DataProvider(dataset_opt)
 
     train_dataset, valid_dataset, train_val_dataset, test_dataset = dp.get_train_test_set(config=dataset_opt, valid_split=0.2, no_split=False)
@@ -319,8 +319,8 @@ if __name__ == '__main__':
 
     ds_dict = dict()
     list_ds = ['training', 'valid', 'test']
-    list_kiraf_ds = [train_dataset, valid_dataset, test_dataset]
-    for ds_name, dataset in zip(list_ds, list_kiraf_ds):
+    list_modproft_ds = [train_dataset, valid_dataset, test_dataset]
+    for ds_name, dataset in zip(list_ds, list_modproft_ds):
         if dataset is None:
             continue
         data_list = create_ds_from_subset(dataset)

@@ -2,7 +2,7 @@ data:
   task: ${task.name}
   class_weight_method: ''
   define: zivid
-  class: kiraf.KIraFDataset
+  class: modproft.modproftDataset
   dataroot: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   grid_size: 0.03
   normal: false
@@ -20,7 +20,7 @@ data:
   n_pcls: 2
   filepath: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   camera: ''
-  filepath_torch: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/kiraf/
+  filepath_torch: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/
   filepath_sampled_pcl: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/sampled
   include_real_data_to_training: true
   model: kpconv
@@ -546,7 +546,7 @@ training:
   enable_cudnn: true
   checkpoint_dir: ''
   wandb:
-    project: kiraf
+    project: modproft
     log: false
     name: ${model_name}s
     public: true
