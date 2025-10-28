@@ -4,7 +4,7 @@ defaults:
 
 define: &used_camera 'zivid'
 
-class: modproft.modproftDataset
+class: bhatkale45.bhatkale45Dataset
 #dataroot: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data
 grid_size: 0.03
 normal: False # Use normal vectors as features
@@ -29,7 +29,7 @@ camera: ""
 # for testing with other cameras
 #filepath: /home/andi/DeepViewAgg/real_pcls/np/
 
-#filepath_torch: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/modproft/
+#filepath_torch: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/bhatkale45/
 #filepath_sampled_pcl: /home/andi/DeepViewAgg/torch_points3d/datasets/segmentation/utils/data/sampled
 
 include_real_data_to_training: True

@@ -8,7 +8,7 @@ defaults: # for loading the default.yaml config
   - debugging: default
   - sota # Contains current SOTA results on different datasets (extracted from papers !).
   - override models: panoptic/pointgroup
-  - override data: panoptic/modproft_pan
+  - override data: panoptic/bhatkale45_pan
 #  - hydra/job_logging: custom
 #  - hydra/output: custom  # add the support for user-defined experiment folder (where to save the experiment files)
 

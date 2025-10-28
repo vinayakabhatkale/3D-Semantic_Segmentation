@@ -2,7 +2,7 @@ data:
   task: ${task.name}
   class_weight_method: ''
   define: zivid
-  class: modproft.modproftDataset
+  class: bhatkale45.bhatkale45Dataset
   dataroot: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   grid_size: 0.03
   normal: false
@@ -20,7 +20,7 @@ data:
   n_pcls: 2
   filepath: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   camera: ''
-  filepath_torch: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/
+  filepath_torch: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/bhatkale45/
   filepath_sampled_pcl: /home/developer/deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/sampled
   include_real_data_to_training: true
   model: kpconv
@@ -546,7 +546,7 @@ training:
   enable_cudnn: true
   checkpoint_dir: ''
   wandb:
-    project: modproft
+    project: bhatkale45
     log: false
     name: ${model_name}s
     public: true

@@ -148,7 +148,7 @@ hydra:
       visualization: default
       task: segmentation
       models: segmentation/kpconv
-      data: segmentation/modproft
+      data: segmentation/bhatkale45
       hydra/env: default
       hydra/callbacks: null
       hydra/job_logging: default

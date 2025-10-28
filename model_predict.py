@@ -4,7 +4,7 @@ import numpy as np
 from hydra.core.global_hydra import GlobalHydra
 from omegaconf import OmegaConf
 from torch_points3d.trainer import Trainer
-from torch_points3d.datasets.segmentation.modproft import modproft
+from torch_points3d.datasets.segmentation.bhatkale45 import bhatkale45
 from torch_geometric.data.dataloader  import DataLoader
 from torch_points3d.datasets.segmentation.utils.viz_pcl import Visualizations
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
@@ -137,14 +137,14 @@ def main(cfg):
     
     # not only latest but also best_acc, best_macc and best_miou is possible
     #model.load_state_dict(best_model['models']['latest'])
-    dataset_opt= yaml.safe_load(Path('/home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/conf/data/segmentation/modproft.yaml').read_text())
+    dataset_opt= yaml.safe_load(Path('/home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/conf/data/segmentation/bhatkale45.yaml').read_text())
     camera = dataset_opt['camera']
     if dataset_opt['include_real_data_to_training'] is True:
-        path = f'/home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/real_in_train/zivid/torch_training_data_test.torchds'
+        path = f'/home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/bhatkale45/real_in_train/zivid/torch_training_data_test.torchds'
     else:
         pass
     
-    path = '/home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/no_real_in_train/zivid/torch_training_data_test.torchds'
+    path = '/home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/bhatkale45/no_real_in_train/zivid/torch_training_data_test.torchds'
 
     ds_list = torch.load(path)
 

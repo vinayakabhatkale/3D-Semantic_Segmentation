@@ -29,7 +29,7 @@ checkpoint_dir: "" #check where the models are stored.
 # Those arguments within experiment defines which model, dataset and task to be created for benchmarking
 # parameters for Weights and Biases
 wandb:
-  project: modproft
+  project: bhatkale45
   log: False
   name: ${model_name}s
   public: True # It will be display the model within wandb log, else not.

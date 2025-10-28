@@ -9,7 +9,7 @@ with open(THISDIR/'requirements.txt') as f:
 setup(
     name="torch_points3d",
     author='vinayaka bhat',
-    description='Modproft training pipeline', 
+    description='bhatkale45 training pipeline', 
 #    url='https://github.com/cheind/pytorch-blender',
     license='MIT',
 #   long_description=long_description,

@@ -129,18 +129,18 @@ hydra:
   runtime:
     version: 1.3.2
     version_base: '1.1'
-    cwd: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation
+    cwd: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45_deepviewaggregation
     config_sources:
     - path: hydra.conf
       schema: pkg
       provider: hydra
-    - path: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/conf
+    - path: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45_deepviewaggregation/conf
       schema: file
       provider: main
     - path: ''
       schema: structured
       provider: schema
-    output_dir: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft_deepviewaggregation/outputs/2025-01-19/15-55-02
+    output_dir: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45_deepviewaggregation/outputs/2025-01-19/15-55-02
     choices:
       debugging: default
       training: kpconv
@@ -148,7 +148,7 @@ hydra:
       visualization: default
       task: segmentation
       models: segmentation/kpconv
-      data: segmentation/modproft
+      data: segmentation/bhatkale45
       hydra/env: default
       hydra/callbacks: null
       hydra/job_logging: default

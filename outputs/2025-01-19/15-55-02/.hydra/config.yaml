@@ -2,8 +2,8 @@ data:
   task: ${task.name}
   class_weight_method: ''
   define: zivid
-  class: modproft.modproftDataset
-  dataroot: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
+  class: bhatkale45.bhatkale45Dataset
+  dataroot: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   grid_size: 0.03
   normal: false
   first_subsampling: 0.02
@@ -18,10 +18,10 @@ data:
   sampling_strategy: random
   'n': 3
   n_pcls: 2
-  filepath: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
+  filepath: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/
   camera: ''
-  filepath_torch: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/modproft/
-  filepath_sampled_pcl: /home/developer/ModProFT/install/modproft_environment_detection/share/modproft_environment_detection/modproft-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/sampled
+  filepath_torch: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/bhatkale45/
+  filepath_sampled_pcl: /home/developer/bhatkale45/install/bhatkale45_environment_detection/share/bhatkale45_environment_detection/bhatkale45-deepviewaggregation/torch_points3d/datasets/segmentation/utils/data/sampled
   include_real_data_to_training: true
   model: kpconv
 models:
@@ -546,7 +546,7 @@ training:
   enable_cudnn: true
   checkpoint_dir: ''
   wandb:
-    project: modproft
+    project: bhatkale45
     log: false
     name: ${model_name}s
     public: true

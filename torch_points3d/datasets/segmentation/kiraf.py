@@ -11,7 +11,7 @@ from torch_geometric.data import Data, InMemoryDataset, extract_zip
 from torch_geometric.io import read_txt_array
 import torch_geometric.transforms as T
 from torch_points3d.core.data_transform.grid_transform import SaveOriginalPosId
-from torch_points3d.metrics.modproft_tracker import modproftTracker
+from torch_points3d.metrics.bhatkale45_tracker import bhatkale45Tracker
 from torch_points3d.datasets.base_dataset import BaseDataset, save_used_properties
 from torch_points3d.datasets.segmentation.utils.viz_pcl import Visualizations
 
@@ -19,7 +19,7 @@ from pickle import dump, load
 
 
 
-class modproft(InMemoryDataset):
+class bhatkale45(InMemoryDataset):
     url = None
     """
     category_ids = {
@@ -76,7 +76,7 @@ class modproft(InMemoryDataset):
         self.categories = categories
         self.is_training = training
 
-        super(modproft, self).__init__(
+        super(bhatkale45, self).__init__(
             root, transform, pre_transform, pre_filter)
 
         self.split = split
@@ -218,8 +218,8 @@ class modproft(InMemoryDataset):
         return "{}({}, categories={})".format(self.__class__.__name__, len(self), self.categories)
 
 
-class modproftDataset(BaseDataset):
-    """ Wrapper around modproft that creates train and test datasets.
+class bhatkale45Dataset(BaseDataset):
+    """ Wrapper around bhatkale45 that creates train and test datasets.
 
     Parameters
     ----------
@@ -253,7 +253,7 @@ class modproftDataset(BaseDataset):
             fold = None
 
         # generate training data and data loader
-        self.train_dataset = modproft(
+        self.train_dataset = bhatkale45(
             self._data_path,
             camera=camera,
             #self._category,
@@ -264,7 +264,7 @@ class modproftDataset(BaseDataset):
             fold=fold
         )
 
-        self.val_dataset = modproft(
+        self.val_dataset = bhatkale45(
             self._data_path,
             include_normals=dataset_opt.normal,
             split="val",
@@ -274,7 +274,7 @@ class modproftDataset(BaseDataset):
             fold=fold
         )
 
-        self.test_dataset = modproft(
+        self.test_dataset = bhatkale45(
             self._data_path,
             camera=camera,
             include_normals=dataset_opt.normal,
@@ -289,7 +289,7 @@ class modproftDataset(BaseDataset):
     def class_to_segments(self):
         classes_to_segment = {}
         for key in self._categories:
-            classes_to_segment[key] = modproft.seg_classes[key]
+            classes_to_segment[key] = bhatkale45.seg_classes[key]
         return classes_to_segment
 
     @property
@@ -305,4 +305,4 @@ class modproftDataset(BaseDataset):
         Returns:
             [BaseTracker] -- tracker
         """
-        return modproftTracker(self, wandb_log=wandb_log, use_tensorboard=tensorboard_log, dataset_opt=self.dataset_opt)
+        return bhatkale45Tracker(self, wandb_log=wandb_log, use_tensorboard=tensorboard_log, dataset_opt=self.dataset_opt)

@@ -30,7 +30,7 @@ checkpoint_dir: ""
 # parameters for Weights and Biases
 wandb:
   entity: ""
-  project: modproft 
+  project: bhatkale45 
   log: False
   notes:
   name: PointNet

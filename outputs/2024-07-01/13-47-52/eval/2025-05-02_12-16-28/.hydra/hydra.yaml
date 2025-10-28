@@ -129,12 +129,12 @@ hydra:
   runtime:
     version: 1.3.2
     version_base: '1.1'
-    cwd: /home/developer/ModProFT
+    cwd: /home/developer/bhatkale45
     config_sources:
     - path: hydra.conf
       schema: pkg
       provider: hydra
-    - path: /home/developer/ModProFT/install/modproft_environment_detection/deepviewaggregation/conf
+    - path: /home/developer/bhatkale45/install/bhatkale45_environment_detection/deepviewaggregation/conf
       schema: file
       provider: main
     - path: ''
